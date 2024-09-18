@@ -206,6 +206,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <button class="w3-button w3-light-grey w3-padding-large" type="submit">
           <i class="fa fa-paper-plane"></i> ENVIAR MENSAJE 
         </button>
+        <input type="hidden" name="_next" value="">
     <input type="hidden" name="_captcha" value="false">
       </p>
       
@@ -213,14 +214,17 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <div id="mensaje">Gracias por llenar el formulario.</div>
 <script>
     document.getElementById('miFormulario').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar el envío del formulario
+        event.preventDefault(); // Evita el envío del formulario
 
-        // Mostrar el mensaje de agradecimiento
+        // Muestra el mensaje
         const mensaje = document.getElementById('mensaje');
         mensaje.style.display = 'block';
 
-        // Ocultar el mensaje después de 5 segundos (5000 milisegundos)
-        setTimeout(function() {
+        // Limpia los campos del formulario
+        this.reset();
+
+        // Oculta el mensaje después de 5 segundos
+        setTimeout(() => {
             mensaje.style.display = 'none';
         }, 5000);
     });
