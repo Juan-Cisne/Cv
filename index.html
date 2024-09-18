@@ -188,8 +188,16 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: cisneros.juan7711@gmail.com</p>
     </div><br>
     <p>Pongámonos en contacto. Envíame un mensaje:</p>
+    <style>
+        #mensaje {
+            display: none; /* Ocultar el mensaje inicialmente */
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
 
-    <form action="https://formsubmit.co/cisneros.juan7711@gmail.com" method="POST">
+    <form action="https://formsubmit.co/cisneros.juan7711@gmail.com" method="POST" id="miFormulario">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Nombre" required name="Name"></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Asunto" required name="Subject"></p>
@@ -198,11 +206,25 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <button class="w3-button w3-light-grey w3-padding-large" type="submit">
           <i class="fa fa-paper-plane"></i> ENVIAR MENSAJE 
         </button>
-        <input type="hidden" name="_next" value="https://juan-cisne.github.io/Cv/">
     <input type="hidden" name="_captcha" value="false">
       </p>
       
     </form>
+    <div id="mensaje">Gracias por llenar el formulario.</div>
+<script>
+    document.getElementById('miFormulario').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar el envío del formulario
+
+        // Mostrar el mensaje de agradecimiento
+        const mensaje = document.getElementById('mensaje');
+        mensaje.style.display = 'block';
+
+        // Ocultar el mensaje después de 5 segundos (5000 milisegundos)
+        setTimeout(function() {
+            mensaje.style.display = 'none';
+        }, 5000);
+    });
+</script>
   <!-- End Contact Section -->
   </div>
   
